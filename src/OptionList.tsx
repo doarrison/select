@@ -199,6 +199,7 @@ const OptionList: React.RefForwardingComponent<
         }
 
         // >>> Select
+        case KeyCode.TAB:
         case KeyCode.ENTER: {
           // value
           const item = memoFlattenOptions[activeIndex];
