@@ -174,13 +174,30 @@ var OptionList = function OptionList(_ref, ref) {
           // >>> Select
 
           case KeyCode.TAB:
+            {
+              if (!multiple) {
+                var item = memoFlattenOptions[activeIndex];
+
+                if (item && !item.data.disabled) {
+                  onSelectValue(item.data.value);
+                } else {
+                  onSelectValue(undefined);
+                } //if(open) {
+                //event.preventDefault();
+                //}
+
+              }
+
+              break;
+            }
+
           case KeyCode.ENTER:
             {
               // value
-              var item = memoFlattenOptions[activeIndex];
+              var _item = memoFlattenOptions[activeIndex];
 
-              if (item && !item.data.disabled) {
-                onSelectValue(item.data.value);
+              if (_item && !_item.data.disabled) {
+                onSelectValue(_item.data.value);
               } else {
                 onSelectValue(undefined);
               }
