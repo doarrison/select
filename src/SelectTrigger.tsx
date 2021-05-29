@@ -115,9 +115,8 @@ const SelectTrigger: React.RefForwardingComponent<RefTriggerProps, SelectTrigger
     getPopupElement: () => popupRef.current,
   }));
 
-  const popupStyle: React.CSSProperties = {
+  let popupStyle: React.CSSProperties = {
     minWidth: containerWidth,
-    ...dropdownStyle,
   };
 
   if (typeof dropdownMatchSelectWidth === 'number') {
@@ -125,6 +124,11 @@ const SelectTrigger: React.RefForwardingComponent<RefTriggerProps, SelectTrigger
   } else if (dropdownMatchSelectWidth) {
     popupStyle.width = containerWidth;
   }
+  
+  popupStyle = {
+    ...popupStyle,
+    ...dropdownStyle
+  };
 
   return (
     <Trigger
