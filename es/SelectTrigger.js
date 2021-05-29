@@ -87,10 +87,9 @@ var SelectTrigger = function SelectTrigger(props, ref) {
       }
     };
   });
-
-  var popupStyle = _objectSpread({
+  var popupStyle = {
     minWidth: containerWidth
-  }, dropdownStyle);
+  };
 
   if (typeof dropdownMatchSelectWidth === 'number') {
     popupStyle.width = dropdownMatchSelectWidth;
@@ -98,6 +97,7 @@ var SelectTrigger = function SelectTrigger(props, ref) {
     popupStyle.width = containerWidth;
   }
 
+  popupStyle = _objectSpread(_objectSpread({}, popupStyle), dropdownStyle);
   return /*#__PURE__*/React.createElement(Trigger, Object.assign({}, restProps, {
     showAction: [],
     hideAction: [],
